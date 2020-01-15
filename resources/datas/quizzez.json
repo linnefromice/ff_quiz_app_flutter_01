@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "questionText": "Who is the main character of FFIX?",
+    "answerList": [
+      "Tidus",
+      "Cloud Strife",
+      "Zidane Tribal",
+      "Squall Leonhart"
+    ],
+    "correctAnswer": "Zidane Tribal"
+  },
+  {
+    "id": 2,
+    "questionText": "What's Garnet's temporary name to survive the world?",
+    "answerList": [
+      "Sera",
+      "Yuffie",
+      "Selphie",
+      "Dagger"
+    ],
+    "correctAnswer": "Dagger"
+  },
+  {
+    "id": 3,
+    "questionText": "What kind of mage is Vivi?",
+    "answerList": [
+      "Red",
+      "White",
+      "Black",
+      "Blue"
+    ],
+    "correctAnswer": "Black"
+  },
+  {
+    "id": 4,
+    "questionText": "What is the name of the enemy in FFIX?",
+    "answerList": [
+      "Ultimecia",
+      "Kuja",
+      "Sephiroth",
+      "Jecht",
+      "Gabranth"
+    ],
+    "correctAnswer": "Kuja"
+  },
+  {
+    "id": 5,
+    "questionText": "What was the name of the bandits Zitane belonged?",
+    "answerList": [
+      "Tantalus",
+      "Physalis",
+      "Dontacos",
+      "Banguilas"
+    ],
+    "correctAnswer": "Tantalus"
+  }
+]
