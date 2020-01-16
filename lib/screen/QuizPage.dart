@@ -100,6 +100,48 @@ class _QuizState extends State<QuizPage> {
     );
   }
 
+  void executeForNextQuiz() {
+    Timer(Duration(seconds: 1), () {
+      Navigator.pushNamed(
+          context,
+          QuizPage.routeName,
+          arguments: QuizPageArguments(_numOfAnswers + 1)
+      );
+    });
+  }
+
+  void executeClear() {
+    Timer(Duration(seconds: 1), () {
+      _openClearDialog(context);
+    });
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushNamed(
+        context,
+        HomePage.routeName,
+      );
+    });
+  }
+
+  void executeCorrect(final String selectedAnswer) {
+    _openCorrectDialog(selectedAnswer, context);
+    if (_numOfAnswers + 1 == CORRECT_ANSWERS_FOR_CLEAR) {
+      executeClear();
+    } else {
+      executeForNextQuiz();
+    }
+  }
+
+  void clickAnswer(final String selectedAnswer, final Quiz quiz) {
+    if (selectedAnswer == quiz.correctAnswer) {
+      executeCorrect(selectedAnswer);
+    } else {
+      _openIncorrectDialog(selectedAnswer, context);
+      Timer(Duration(seconds: 1), () {
+        Navigator.pushNamed(context, HomePage.routeName);
+      });
+    }
+  }
+
   Widget _buildAnswerButton(final int index, final Quiz quiz) => Container(
     padding: EdgeInsets.all(2.0),
     width: double.infinity,
@@ -205,7 +247,6 @@ class _QuizState extends State<QuizPage> {
             }
           }
         )
-
       ),
     );
   }

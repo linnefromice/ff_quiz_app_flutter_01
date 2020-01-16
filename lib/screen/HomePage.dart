@@ -45,10 +45,18 @@ class HomePage extends StatelessWidget {
     ),
   );
 
+  AssetImage _buildBackgroundImage(BuildContext context) {
+    if (MediaQuery.of(context).orientation == Orientation.portrait) {
+      return AssetImage('resources/images/home_vertical.jpg');
+    } else {
+      return AssetImage('resources/images/home_horizon.jpg');
+    }
+  }
+
   Widget _buildBody(BuildContext context) => Container(
     decoration: BoxDecoration(
       image: DecorationImage(
-          image: AssetImage('resources/images/home_vertical.jpg'),
+          image: _buildBackgroundImage(context),
           fit: BoxFit.fitWidth
       ),
     ),
