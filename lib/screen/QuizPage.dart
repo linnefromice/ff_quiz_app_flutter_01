@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:ff_quiz_app_flutter/main.dart';
 import 'package:ff_quiz_app_flutter/models/Quiz.dart';
 import 'package:ff_quiz_app_flutter/repositories/QuizRepository.dart';
 import 'package:ff_quiz_app_flutter/screen/HomePage.dart';
@@ -219,8 +218,33 @@ class _QuizState extends State<QuizPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Container(
-                            alignment: Alignment.topRight,
-                            child: Text("NUM OF CORRECT :" + _numOfAnswers.toString()),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.all(1.0),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    color: Colors.blue
+                                  ),
+                                  child: Text('NUM OF CORRECT'),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(1.0),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.black),
+                                      color: Colors.blue
+                                  ),
+                                  child: Text(
+                                    _numOfAnswers.toString(),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                           Container(
                             child: Icon(
