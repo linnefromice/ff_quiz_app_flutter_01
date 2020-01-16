@@ -146,36 +146,7 @@ class _QuizState extends State<QuizPage> {
     width: double.infinity,
     child: RaisedButton(
       child: Text(quiz.answerList[index], style: TextStyle(fontSize: 20.0),),
-      onPressed: () {
-        String _selectedAnswer = quiz.answerList[index];
-        if (_selectedAnswer == quiz.correctAnswer) {
-          _openCorrectDialog(_selectedAnswer, context);
-          if (_numOfAnswers + 1 == correctAnswerForClear) {
-            Timer(Duration(seconds: 1), () {
-              _openClearDialog(context);
-            });
-            Timer(Duration(seconds: 3), () {
-              Navigator.pushNamed(
-                  context,
-                  HomePage.routeName,
-              );
-            });
-          } else {
-            Timer(Duration(seconds: 1), () {
-              Navigator.pushNamed(
-                  context,
-                  QuizPage.routeName,
-                  arguments: QuizPageArguments(_numOfAnswers + 1)
-              );
-            });
-          }
-        } else {
-          _openIncorrectDialog(_selectedAnswer, context);
-          Timer(Duration(seconds: 1), () {
-            Navigator.pushNamed(context, HomePage.routeName);
-          });
-        }
-      }
+      onPressed: () => clickAnswer(quiz.answerList[index], quiz)
     ),
   );
 
