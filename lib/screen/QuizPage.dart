@@ -15,7 +15,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizState extends State<QuizPage> {
 
-  final int CORRECT_ANSWERS_FOR_CLEAR = 5;
+  final int correctAnswerForClear = 5;
   int _numOfAnswers;
 
   Widget _buildClearDialog() => SimpleDialog(
@@ -123,7 +123,7 @@ class _QuizState extends State<QuizPage> {
 
   void executeCorrect(final String selectedAnswer) {
     _openCorrectDialog(selectedAnswer, context);
-    if (_numOfAnswers + 1 == CORRECT_ANSWERS_FOR_CLEAR) {
+    if (_numOfAnswers + 1 == correctAnswerForClear) {
       executeClear();
     } else {
       executeForNextQuiz();
@@ -150,7 +150,7 @@ class _QuizState extends State<QuizPage> {
         String _selectedAnswer = quiz.answerList[index];
         if (_selectedAnswer == quiz.correctAnswer) {
           _openCorrectDialog(_selectedAnswer, context);
-          if (_numOfAnswers + 1 == CORRECT_ANSWERS_FOR_CLEAR) {
+          if (_numOfAnswers + 1 == correctAnswerForClear) {
             Timer(Duration(seconds: 1), () {
               _openClearDialog(context);
             });
