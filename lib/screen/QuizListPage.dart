@@ -82,6 +82,9 @@ class _QuizListState extends State<QuizListPage> {
       appBar: AppBar(
         title: Text('Final Fantasy Quiz App'),
         centerTitle: true,
+        leading: IconButton(icon:Icon(Icons.arrow_back),
+          onPressed:() => Navigator.pop(context, false),
+        ),
       ),
       body: Center(
         child: FutureBuilder(

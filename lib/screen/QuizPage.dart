@@ -103,9 +103,9 @@ class _QuizState extends State<QuizPage> {
   void executeForNextQuiz() {
     Timer(Duration(seconds: 1), () {
       Navigator.pushNamed(
-          context,
-          QuizPage.routeName,
-          arguments: QuizPageArguments(_numOfAnswers + 1)
+        context,
+        QuizPage.routeName,
+        arguments: QuizPageArguments(_numOfAnswers + 1)
       );
     });
   }
@@ -199,7 +199,13 @@ class _QuizState extends State<QuizPage> {
         brightness: Brightness.dark,
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Quiz Page')),
+        appBar: AppBar(
+          title: Text('Quiz Page'),
+          centerTitle: true,
+          leading: IconButton(icon:Icon(Icons.close),
+            onPressed:() => Navigator.pushNamed(context, HomePage.routeName),
+          ),
+        ),
         body: FutureBuilder<Quiz>(
           future: selectOne(_numOfAnswers),
           builder: (context, snapshot) {
