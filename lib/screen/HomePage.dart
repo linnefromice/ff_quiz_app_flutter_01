@@ -1,3 +1,4 @@
+import 'package:ff_quiz_app_flutter/screen/AboutThisPage.dart';
 import 'package:ff_quiz_app_flutter/screen/QuizListPage.dart';
 import 'package:ff_quiz_app_flutter/screen/arguments/QuizPageArguments.dart';
 import 'package:flutter/material.dart';
@@ -38,8 +39,12 @@ class HomePage extends StatelessWidget {
           ),
         ),
         ListTile(
-            title: Text('QuizList Screen'),
-            onTap: () => Navigator.pushNamed(context, QuizListPage.routeName)
+          title: Text('AboutThis'),
+          onTap: () => Navigator.pushNamed(context, AboutThisPage.routeName)
+        ),
+        ListTile(
+          title: Text('QuizList'),
+          onTap: () => Navigator.pushNamed(context, QuizListPage.routeName)
         ),
       ],
     ),
