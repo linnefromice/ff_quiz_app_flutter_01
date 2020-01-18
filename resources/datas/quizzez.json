@@ -54,5 +54,17 @@
       "Banguilas"
     ],
     "correctAnswer": "Tantalus"
+  },
+  {
+    "id": 6,
+    "questionText": "What is the name of the knights headed by Steiner?",
+    "answerList": [
+      "Goofy",
+      "Pongo",
+      "Max",
+      "Pluto"
+    ],
+    "correctAnswer": "Pluto"
   }
+
 ]

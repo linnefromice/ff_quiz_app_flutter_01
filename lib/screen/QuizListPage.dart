@@ -12,7 +12,7 @@ class QuizListPage extends StatefulWidget {
 
 class _QuizListState extends State<QuizListPage> {
   Future<List<Quiz>> _findQuizList() async {
-    return await selectAll();
+    return await QuizRepository.selectAll();
   }
 
   Widget _buildRow(String title, String content) => Row(

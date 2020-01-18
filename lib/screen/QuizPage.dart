@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:ff_quiz_app_flutter/models/Quiz.dart';
 import 'package:ff_quiz_app_flutter/repositories/QuizRepository.dart';
 import 'package:ff_quiz_app_flutter/screen/HomePage.dart';
+import 'package:ff_quiz_app_flutter/services/QuizService.dart';
 import 'package:flutter/material.dart';
 import './arguments/QuizPageArguments.dart';
 
@@ -17,6 +18,7 @@ class _QuizState extends State<QuizPage> {
 
   final int correctAnswerForClear = 5;
   int _numOfAnswers;
+  List<int> _answeredQuizIds;
 
   Widget _buildClearDialog() => SimpleDialog(
     children: <Widget>[
@@ -99,12 +101,16 @@ class _QuizState extends State<QuizPage> {
     );
   }
 
-  void executeForNextQuiz() {
+  void executeForNextQuiz(final int quizId) {
+    _answeredQuizIds.add(quizId);
     Timer(Duration(seconds: 1), () {
       Navigator.pushNamed(
         context,
         QuizPage.routeName,
-        arguments: QuizPageArguments(_numOfAnswers + 1)
+        arguments: QuizPageArguments(
+            _numOfAnswers + 1,
+          _answeredQuizIds,
+        ),
       );
     });
   }
@@ -121,18 +127,18 @@ class _QuizState extends State<QuizPage> {
     });
   }
 
-  void executeCorrect(final String selectedAnswer) {
+  void executeCorrect(final String selectedAnswer, final int quizId) {
     _openCorrectDialog(selectedAnswer, context);
     if (_numOfAnswers + 1 == correctAnswerForClear) {
       executeClear();
     } else {
-      executeForNextQuiz();
+      executeForNextQuiz(quizId);
     }
   }
 
   void clickAnswer(final String selectedAnswer, final Quiz quiz) {
     if (selectedAnswer == quiz.correctAnswer) {
-      executeCorrect(selectedAnswer);
+      executeCorrect(selectedAnswer, quiz.id);
     } else {
       _openIncorrectDialog(selectedAnswer, context);
       Timer(Duration(seconds: 1), () {
@@ -160,8 +166,13 @@ class _QuizState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     final QuizPageArguments _args = ModalRoute.of(context).settings.arguments;
+    print("BUILD QuizPage");
+    print(_args.numOfAnswers);
+    print(_args.answeredQuizIds);
+
     setState(() {
       _numOfAnswers = _args.numOfAnswers;
+      _answeredQuizIds = _args.answeredQuizIds;
     });
 
     return MaterialApp(
@@ -177,7 +188,7 @@ class _QuizState extends State<QuizPage> {
           ),
         ),
         body: FutureBuilder<Quiz>(
-          future: selectOne(_numOfAnswers),
+          future: QuizService.selectRandomQuizWithoutUsed(_answeredQuizIds),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               Quiz _data = snapshot.data;

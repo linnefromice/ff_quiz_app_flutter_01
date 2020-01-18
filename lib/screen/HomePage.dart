@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
       onTap: () => Navigator.pushNamed(
         context,
         QuizPage.routeName,
-        arguments: QuizPageArguments(0)
+        arguments: QuizPageArguments(0, [])
       ),
       focusColor: Colors.blue,
       highlightColor: Colors.blue,
