@@ -65,6 +65,27 @@
       "Pluto"
     ],
     "correctAnswer": "Pluto"
+  },
+  {
+    "id": 7,
+    "questionText": "What is the name of Moogle, whose trademark is bandana and a big backpack, and who sell items everywhere to players?",
+    "answerList": [
+      "Mogunosuke",
+      "Stiltzkin",
+      "Kupo",
+      "Artemicion"
+    ],
+    "correctAnswer": "Stiltzkin"
+  },
+  {
+    "id": 8,
+    "questionText": "What is the letter delivery system between moogles?",
+    "answerList": [
+      "Mognet",
+      "Mogmail",
+      "Mog-SMS",
+      "Mogservice"
+    ],
+    "correctAnswer": "Mognet"
   }
-
 ]
