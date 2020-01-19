@@ -48,6 +48,7 @@ flutter:
     - resources/datas/quizzez.json
     - resources/images/home_vertical.jpg
     - resources/images/home_horizon.jpg
+    - resources/images/aboutffix_top.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,3 +1,4 @@
+import 'package:ff_quiz_app_flutter/screen/AboutFFIXPage.dart';
 import 'package:ff_quiz_app_flutter/screen/AboutThisPage.dart';
 import 'package:ff_quiz_app_flutter/screen/HomePage.dart';
 import 'package:ff_quiz_app_flutter/screen/QuizListPage.dart';
@@ -9,6 +10,7 @@ class Routes {
   static final routes = <String, WidgetBuilder>{
     HomePage.routeName : (context) => HomePage(),
     AboutThisPage.routeName : (context) => AboutThisPage(),
+    AboutFFIXPage.routeName : (context) => AboutFFIXPage(),
     QuizPage.routeName : (context) => QuizPage(),
     QuizListPage.routeName : (context) => QuizListPage()
   };
