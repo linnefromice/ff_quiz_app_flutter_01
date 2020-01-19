@@ -87,5 +87,27 @@
       "Mogservice"
     ],
     "correctAnswer": "Mognet"
+  },
+  {
+    "id": 9,
+    "questionText": "Which summoned beast does not appear in FFIX?",
+    "answerList": [
+      "Shiva",
+      "Leviathan",
+      "Carbuncle",
+      "Seiren"
+    ],
+    "correctAnswer": "Seiren"
+  },
+  {
+    "id": 10,
+    "questionText": "What is the strongest weapon of a dagger equipped by Zidane?",
+    "answerList": [
+      "Orichalcon",
+      "Assassin Dagger",
+      "Chicken knife",
+      "Gladius"
+    ],
+    "correctAnswer": "Orichalcon"
   }
 ]
