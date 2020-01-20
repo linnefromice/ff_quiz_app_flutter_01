@@ -109,5 +109,27 @@
       "Gladius"
     ],
     "correctAnswer": "Orichalcon"
+  },
+  {
+    "id": 11,
+    "questionText": "How many discs of PlayStation version software?",
+    "answerList": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "correctAnswer": "Four"
+  },
+  {
+    "id": 12,
+    "questionText": "Whose equipment is Excalibur II, which is the strongest sword?",
+    "answerList": [
+      "Zidane Tribal",
+      "Adelbert Steiner",
+      "Freya Crescent",
+      "Salamander Coral"
+    ],
+    "correctAnswer": "Adelbert Steiner"
   }
 ]

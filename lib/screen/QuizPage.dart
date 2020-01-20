@@ -166,10 +166,6 @@ class _QuizState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     final QuizPageArguments _args = ModalRoute.of(context).settings.arguments;
-    print("BUILD QuizPage");
-    print(_args.numOfAnswers);
-    print(_args.answeredQuizIds);
-
     setState(() {
       _numOfAnswers = _args.numOfAnswers;
       _answeredQuizIds = _args.answeredQuizIds;
