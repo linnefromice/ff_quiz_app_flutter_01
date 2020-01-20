@@ -4,6 +4,36 @@ class AboutFFIXPage extends StatelessWidget {
 
   static final String routeName = '/about_ffix';
 
+  Widget _buildReferenceElement() => _buildOneElement(
+    'References',
+    Container(
+      padding: EdgeInsets.all(2.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('https://www.jp.square-enix.com/ff9/'),
+          Text('https://en.wikipedia.org/wiki/Final_Fantasy_IX'),
+        ],
+      ),
+    ),
+  );
+
+  Widget _buildStoryElement() => _buildOneElement(
+    'Story',
+    Container(
+        padding: EdgeInsets.all(2.0),
+        child: Text('Final Fantasy IX takes place primarily on a world named Gaia. Most of Gaia\'s population reside on the Mist Continent, named after the thick Mist that blankets the lowlands. Large mountain ranges act as natural borders that separate its four nations: Alexandria, Lindblum, Burmecia, and Cleyra. Alexandria is a warmongering monarchy that controls the eastern half of the continent. One of its cities is Treno, a cultural nexus under perpetual starlight that is home to many aristocrats and paupers alike. The technologically advanced Lindblum, a hub of airship travel, is nestled on a plateau to the southwest. Both countries are populated by a mix of humans, humanoids, and anthropomorphic animals. Burmecia, a kingdom showered by endless rain, is in the northwest; Cleyra, a neighboring region that seceded from Burmecia due to the latter\'s appreciation for war, hails from a giant tree in the desert and is protected by a powerful sandstorm. Both are inhabited by anthropomorphic rats with a fondness for dance and spear fighting.')
+    ),
+  );
+
+  Widget _buildOverviewElement() => _buildOneElement(
+    'Overview',
+    Container(
+      padding: EdgeInsets.all(2.0),
+      child: Text('Final Fantasy IX is a 2000 role-playing video game developed and published by Squaresoft for the PlayStation video game console. It is the ninth game in the main Final Fantasy series and the last to debut on the original PlayStation. The plot centers on the consequences of a war between nations in a medieval fantasy world called Gaia. Players follow bandit Zidane Tribal, who kidnaps Alexandrian princess Garnet Til Alexandros XVII as part of a gambit by the neighboring nation of Lindblum. He joins Garnet and a growing cast of characters on a quest to take down her mother, Queen Brahne of Alexandria, who started the war. The plot shifts when the player learns that Brahne is a pawn of a more menacing threat, Kuja, who shares a mysterious history with Zidane spanning two worlds.'),
+    ),
+  );
+
   Widget _buildElementTitle(final String title) => Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
@@ -85,39 +115,15 @@ class AboutFFIXPage extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.all(4.0),
-                child: _buildOneElement(
-                  'Overview',
-                  Container(
-                    padding: EdgeInsets.all(2.0),
-                    child: Text('Final Fantasy IX[a] is a 2000 role-playing video game developed and published by Squaresoft for the PlayStation video game console. It is the ninth game in the main Final Fantasy series and the last to debut on the original PlayStation. The plot centers on the consequences of a war between nations in a medieval fantasy world called Gaia. Players follow bandit Zidane Tribal, who kidnaps Alexandrian princess Garnet Til Alexandros XVII as part of a gambit by the neighboring nation of Lindblum. He joins Garnet and a growing cast of characters on a quest to take down her mother, Queen Brahne of Alexandria, who started the war. The plot shifts when the player learns that Brahne is a pawn of a more menacing threat, Kuja, who shares a mysterious history with Zidane spanning two worlds.'),
-                  ),
-                ),
+                child: _buildOverviewElement()
               ),
               Container(
                 padding: EdgeInsets.all(4.0),
-                child: _buildOneElement(
-                  'Story',
-                  Container(
-                    padding: EdgeInsets.all(2.0),
-                    child: Text('Final Fantasy IX takes place primarily on a world named Gaia. Most of Gaia\'s population reside on the Mist Continent, named after the thick Mist that blankets the lowlands. Large mountain ranges act as natural borders that separate its four nations: Alexandria, Lindblum, Burmecia, and Cleyra. Alexandria is a warmongering monarchy that controls the eastern half of the continent. One of its cities is Treno, a cultural nexus under perpetual starlight that is home to many aristocrats and paupers alike. The technologically advanced Lindblum, a hub of airship travel, is nestled on a plateau to the southwest. Both countries are populated by a mix of humans, humanoids, and anthropomorphic animals. Burmecia, a kingdom showered by endless rain, is in the northwest; Cleyra, a neighboring region that seceded from Burmecia due to the latter\'s appreciation for war, hails from a giant tree in the desert and is protected by a powerful sandstorm. Both are inhabited by anthropomorphic rats with a fondness for dance and spear fighting.')
-                  ),
-                )
+                child: _buildStoryElement()
               ),
               Container(
                 padding: EdgeInsets.all(4.0),
-                child: _buildOneElement(
-                  'References',
-                  Container(
-                    padding: EdgeInsets.all(2.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('https://www.jp.square-enix.com/ff9/'),
-                        Text('https://en.wikipedia.org/wiki/Final_Fantasy_IX'),
-                      ],
-                    ),
-                  ),
-                ),
+                child: _buildReferenceElement()
               ),
             ],
           ),
