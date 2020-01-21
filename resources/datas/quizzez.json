@@ -131,5 +131,27 @@
       "Salamander Coral"
     ],
     "correctAnswer": "Adelbert Steiner"
+  },
+  {
+    "id": 13,
+    "questionText": "What is a system that you see character events occurring elsewhere at a scenario milestone?",
+    "answerList": [
+      "Dramatic Event",
+      "Party Report",
+      "Cross Story Report",
+      "Active Time Event"
+    ],
+    "correctAnswer": "Active Time Event"
+  },
+  {
+    "id": 14,
+    "questionText": "What are the unique skills that Quina needs to learn blue magic from monsters?",
+    "answerList": [
+      "Steal",
+      "Absorb",
+      "Eat",
+      "Dismantle"
+    ],
+    "correctAnswer": "Eat"
   }
 ]
