@@ -100,65 +100,71 @@ class HomePage extends StatelessWidget {
     ],
   );
 
-  Widget _buildStartButton(BuildContext context) => Row(
+  Widget _buildStartButtonForEasy(BuildContext context) => _buildStartButton(
+    context,
+    Icons.filter_3,
+    Colors.white,
+    'Easy',
+    Colors.green,
+    3
+  );
+
+  Widget _buildStartButtonForNormal(BuildContext context) => _buildStartButton(
+    context,
+    Icons.filter_5,
+    Colors.white,
+    'Normal',
+    Colors.grey,
+    5
+  );
+
+  Widget _buildStartButtonForHard(BuildContext context) => _buildStartButton(
+    context,
+    Icons.filter_9_plus,
+    Colors.white,
+    'Hard',
+    Colors.red,
+    10
+  );
+
+  Widget _buildStartButton(
+    BuildContext context,
+    IconData _icon,
+    Color _iconColor,
+    String _msg,
+    Color _buttonColor,
+    int _correctAnswerForClear
+  ) => RaisedButton.icon(
+    icon: Icon(
+      _icon,
+      color: _iconColor,
+    ),
+    label: Text(
+      _msg,
+      style: TextStyle(fontSize: 20),
+    ),
+    color: _buttonColor,
+    onPressed: () => Navigator.pushNamed(
+      context,
+      QuizPage.routeName,
+      arguments: QuizPageArguments(0, [], _correctAnswerForClear)
+    ),
+  );
+
+  Widget _buildStartButtons(BuildContext context) => Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
       Container(
         padding: EdgeInsets.all(8.0),
-        child: RaisedButton.icon(
-          icon: Icon(
-            Icons.filter_3,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Easy',
-            style: TextStyle(fontSize: 20),
-          ),
-          color: Colors.green,
-          onPressed: () => Navigator.pushNamed(
-              context,
-              QuizPage.routeName,
-              arguments: QuizPageArguments(0, [], 3)
-          ),
-        ),
+        child: _buildStartButtonForEasy(context)
       ),
       Container(
         padding: EdgeInsets.all(8.0),
-        child: RaisedButton.icon(
-          icon: Icon(
-            Icons.filter_5,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Normal',
-            style: TextStyle(fontSize: 20),
-          ),
-          color: Colors.grey,
-          onPressed: () => Navigator.pushNamed(
-              context,
-              QuizPage.routeName,
-              arguments: QuizPageArguments(0, [], 5)
-          ),
-        ),
+        child: _buildStartButtonForNormal(context)
       ),
       Container(
         padding: EdgeInsets.all(8.0),
-        child: RaisedButton.icon(
-          icon: Icon(
-            Icons.filter_9_plus,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Hard',
-            style: TextStyle(fontSize: 20),
-          ),
-          color: Colors.red,
-          onPressed: () => Navigator.pushNamed(
-            context,
-            QuizPage.routeName,
-            arguments: QuizPageArguments(0, [], 10)
-          ),
-        ),
+        child: _buildStartButtonForHard(context)
       ),
     ],
   );
@@ -176,33 +182,10 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _buildStartTitle(),
-          _buildStartButton(context),
+          _buildStartButtons(context),
         ],
       ),
     ),
-    /*
-    child: InkWell(
-      onTap: () => Navigator.pushNamed(
-        context,
-        QuizPage.routeName,
-        arguments: QuizPageArguments(0, [])
-      ),
-      focusColor: Colors.blue,
-      highlightColor: Colors.blue,
-      hoverColor: Colors.blue,
-      splashColor: Colors.blue,
-      child: Container(
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildStartTitle(),
-            // _buildStartButton(context),
-          ],
-        ),
-      ),
-    ),
-     */
   );
 
   @override
