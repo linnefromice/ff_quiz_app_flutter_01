@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:ff_quiz_app_flutter/models/Quiz.dart';
-import 'package:ff_quiz_app_flutter/repositories/QuizRepository.dart';
 import 'package:ff_quiz_app_flutter/screen/HomePage.dart';
 import 'package:ff_quiz_app_flutter/services/QuizService.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,8 @@ class QuizPage extends StatefulWidget {
 
 class _QuizState extends State<QuizPage> {
 
-  final int correctAnswerForClear = 5;
+  // TODO: BLOCを利用
+  int _correctAnswerForClear;
   int _numOfAnswers;
   List<int> _answeredQuizIds;
 
@@ -110,6 +110,7 @@ class _QuizState extends State<QuizPage> {
         arguments: QuizPageArguments(
             _numOfAnswers + 1,
           _answeredQuizIds,
+          _correctAnswerForClear,
         ),
       );
     });
@@ -129,7 +130,7 @@ class _QuizState extends State<QuizPage> {
 
   void executeCorrect(final String selectedAnswer, final int quizId) {
     _openCorrectDialog(selectedAnswer, context);
-    if (_numOfAnswers + 1 == correctAnswerForClear) {
+    if (_numOfAnswers + 1 == _correctAnswerForClear) {
       executeClear();
     } else {
       executeForNextQuiz(quizId);
@@ -156,6 +157,7 @@ class _QuizState extends State<QuizPage> {
     ),
   );
 
+  // ignore: unused_element
   Widget _buildAnswerButtonList(final Quiz quiz) => ListView.builder(
     itemCount: quiz.answerList.length,
     itemBuilder: (BuildContext context, int index) {
@@ -169,6 +171,7 @@ class _QuizState extends State<QuizPage> {
     setState(() {
       _numOfAnswers = _args.numOfAnswers;
       _answeredQuizIds = _args.answeredQuizIds;
+      _correctAnswerForClear = _args.correctAnswerForClear;
     });
 
     return MaterialApp(
@@ -203,7 +206,7 @@ class _QuizState extends State<QuizPage> {
                                   padding: EdgeInsets.all(1.0),
                                   decoration: BoxDecoration(
                                     border: Border.all(color: Colors.black),
-                                    color: Colors.blue
+                                    color: Colors.grey
                                   ),
                                   child: Text('NUM OF CORRECT'),
                                 ),
@@ -211,10 +214,10 @@ class _QuizState extends State<QuizPage> {
                                   padding: EdgeInsets.all(1.0),
                                   decoration: BoxDecoration(
                                       border: Border.all(color: Colors.black),
-                                      color: Colors.blue
+                                      color: Colors.grey
                                   ),
                                   child: Text(
-                                    _numOfAnswers.toString(),
+                                    '${_numOfAnswers.toString()} / ${_correctAnswerForClear.toString()}',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FontStyle.italic,
@@ -241,6 +244,7 @@ class _QuizState extends State<QuizPage> {
                         ],
                       ),
                     ),
+                    // TODO: 繰り返しで記述
                     _buildAnswerButton(0, _data),
                     _buildAnswerButton(1, _data),
                     _buildAnswerButton(2, _data),
