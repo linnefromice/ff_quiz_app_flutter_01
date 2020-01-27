@@ -1,3 +1,4 @@
+import 'package:ff_quiz_app_flutter/constants/Language.dart';
 import 'package:ff_quiz_app_flutter/models/Quiz.dart';
 import 'package:ff_quiz_app_flutter/repositories/QuizRepository.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,7 +13,7 @@ class QuizListPage extends StatefulWidget {
 
 class _QuizListState extends State<QuizListPage> {
   Future<List<Quiz>> _findQuizList() async {
-    return await QuizRepository.selectAll();
+    return await QuizRepository.selectAll(Language.JP);
   }
 
   Widget _buildRow(String title, String content) => Row(

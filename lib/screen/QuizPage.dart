@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ff_quiz_app_flutter/constants/Language.dart';
 import 'package:ff_quiz_app_flutter/models/Quiz.dart';
 import 'package:ff_quiz_app_flutter/screen/HomePage.dart';
 import 'package:ff_quiz_app_flutter/services/QuizService.dart';
@@ -187,7 +188,7 @@ class _QuizState extends State<QuizPage> {
           ),
         ),
         body: FutureBuilder<Quiz>(
-          future: QuizService.selectRandomQuizWithoutUsed(_answeredQuizIds),
+          future: QuizService.selectRandomQuizWithoutUsed(Language.JP, _answeredQuizIds),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               Quiz _data = snapshot.data;

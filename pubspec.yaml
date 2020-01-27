@@ -45,7 +45,8 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   assets:
-    - resources/datas/quizzez.json
+    - resources/datas/jp/quizzez.json
+    - resources/datas/en/quizzez.json
     - resources/images/home_vertical.jpg
     - resources/images/home_horizon.jpg
     - resources/images/aboutffix_top.jpg
