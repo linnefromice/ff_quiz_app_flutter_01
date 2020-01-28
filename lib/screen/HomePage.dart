@@ -1,3 +1,4 @@
+import 'package:ff_quiz_app_flutter/constants/Language.dart';
 import 'package:ff_quiz_app_flutter/screen/AboutFFIXPage.dart';
 import 'package:ff_quiz_app_flutter/screen/AboutThisPage.dart';
 import 'package:ff_quiz_app_flutter/screen/QuizListPage.dart';
@@ -100,31 +101,34 @@ class HomePage extends StatelessWidget {
     ],
   );
 
-  Widget _buildStartButtonForEasy(BuildContext context) => _buildStartButton(
+  Widget _buildStartButtonForEasy(BuildContext context, String language) => _buildStartButton(
     context,
     Icons.filter_3,
     Colors.white,
     'Easy',
     Colors.green,
-    3
+    3,
+    language
   );
 
-  Widget _buildStartButtonForNormal(BuildContext context) => _buildStartButton(
+  Widget _buildStartButtonForNormal(BuildContext context, String language) => _buildStartButton(
     context,
     Icons.filter_5,
     Colors.white,
     'Normal',
     Colors.grey,
-    5
+    5,
+    language
   );
 
-  Widget _buildStartButtonForHard(BuildContext context) => _buildStartButton(
+  Widget _buildStartButtonForHard(BuildContext context, String language) => _buildStartButton(
     context,
     Icons.filter_9_plus,
     Colors.white,
     'Hard',
     Colors.red,
-    10
+    10,
+    language
   );
 
   Widget _buildStartButton(
@@ -133,7 +137,8 @@ class HomePage extends StatelessWidget {
     Color _iconColor,
     String _msg,
     Color _buttonColor,
-    int _correctAnswerForClear
+    int _correctAnswerForClear,
+    String _language,
   ) => RaisedButton.icon(
     icon: Icon(
       _icon,
@@ -147,24 +152,24 @@ class HomePage extends StatelessWidget {
     onPressed: () => Navigator.pushNamed(
       context,
       QuizPage.routeName,
-      arguments: QuizPageArguments(0, [], _correctAnswerForClear)
+      arguments: QuizPageArguments(0, [], _correctAnswerForClear, _language)
     ),
   );
 
-  Widget _buildStartButtons(BuildContext context) => Row(
+  Widget _buildStartButtons(BuildContext context, String language) => Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
       Container(
         padding: EdgeInsets.all(8.0),
-        child: _buildStartButtonForEasy(context)
+        child: _buildStartButtonForEasy(context, language)
       ),
       Container(
         padding: EdgeInsets.all(8.0),
-        child: _buildStartButtonForNormal(context)
+        child: _buildStartButtonForNormal(context, language)
       ),
       Container(
         padding: EdgeInsets.all(8.0),
-        child: _buildStartButtonForHard(context)
+        child: _buildStartButtonForHard(context, language)
       ),
     ],
   );
@@ -182,7 +187,24 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _buildStartTitle(),
-          _buildStartButtons(context),
+          Text(
+            'English Version',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          _buildStartButtons(context, Language.EN),
+          Text(
+            'Japanese Version',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          _buildStartButtons(context, Language.JP),
         ],
       ),
     ),

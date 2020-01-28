@@ -20,6 +20,7 @@ class _QuizState extends State<QuizPage> {
   int _correctAnswerForClear;
   int _numOfAnswers;
   List<int> _answeredQuizIds;
+  String _language;
 
   Widget _buildClearDialog() => SimpleDialog(
     children: <Widget>[
@@ -112,6 +113,7 @@ class _QuizState extends State<QuizPage> {
             _numOfAnswers + 1,
           _answeredQuizIds,
           _correctAnswerForClear,
+          _language,
         ),
       );
     });
@@ -173,6 +175,7 @@ class _QuizState extends State<QuizPage> {
       _numOfAnswers = _args.numOfAnswers;
       _answeredQuizIds = _args.answeredQuizIds;
       _correctAnswerForClear = _args.correctAnswerForClear;
+      _language = _args.language;
     });
 
     return MaterialApp(
@@ -188,7 +191,7 @@ class _QuizState extends State<QuizPage> {
           ),
         ),
         body: FutureBuilder<Quiz>(
-          future: QuizService.selectRandomQuizWithoutUsed(Language.JP, _answeredQuizIds),
+          future: QuizService.selectRandomQuizWithoutUsed(_language, _answeredQuizIds),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               Quiz _data = snapshot.data;
