@@ -38,32 +38,27 @@ class _QuizListState extends State<QuizListPage> {
     ],
   );
 
-  Widget _buildCard(Quiz quiz) => Card(
-    child: Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          _buildRow('ID', quiz.id.toString()),
-          _buildRow('QUESTION', quiz.questionText),
-          _buildRow('OPTION1', quiz.answerList[0]),
-          _buildRow('OPTION2', quiz.answerList[1]),
-          _buildRow('OPTION3', quiz.answerList[2]),
-          _buildRow('OPTION4', quiz.answerList[3]),
-          /*
-          ListView.builder(
-              itemCount: quiz.answerList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return _buildRow('OPTION' + index.toString(), quiz.answerList[index]);
-              }
-          ),
-          */
-          _buildRow('CORRECT', quiz.correctAnswer),
-        ],
+  Widget _buildCard(Quiz quiz) {
+    List rowList = <Widget>[];
+    rowList.add(_buildRow('ID', quiz.id.toString()));
+    rowList.add(_buildRow('QUESTION', quiz.questionText));
+    for (var dto in quiz.answerList) {
+      rowList.add(_buildRow('OPTION', dto));
+    }
+    rowList.add(_buildRow('CORRECT', quiz.correctAnswer));
+
+    return Card(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: rowList
+        ),
       ),
-    ),
-  );
+    );
+  }
+
 
   Widget _buildCardList(final List<Quiz> list) => ListView.builder(
       itemCount: list.length,
