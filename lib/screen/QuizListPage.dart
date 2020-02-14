@@ -63,9 +63,9 @@ class _QuizListState extends State<QuizListPage> {
   Widget _buildCardList(final List<Quiz> list) => ListView.builder(
       itemCount: list.length,
       itemBuilder: (BuildContext context, int index) {
-        return Padding(
+        return Container(
           padding: EdgeInsets.all(12.0),
-            child: _buildCard(list[index])
+          child: _buildCard(list[index])
         );
       }
   );
