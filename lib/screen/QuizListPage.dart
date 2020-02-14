@@ -28,12 +28,12 @@ class _QuizListState extends State<QuizListPage> {
         )
       ),
       Expanded(
-          flex: 3,
-          child: Container(
-            color: Colors.grey,
-            margin: EdgeInsets.all(1.0),
-            child: Text(content),
-          )
+        flex: 3,
+        child: Container(
+          color: Colors.grey,
+          margin: EdgeInsets.all(1.0),
+          child: Text(content),
+        )
       )
     ],
   );
@@ -60,8 +60,6 @@ class _QuizListState extends State<QuizListPage> {
           ),
           */
           _buildRow('CORRECT', quiz.correctAnswer),
-          /*
-          */
         ],
       ),
     ),

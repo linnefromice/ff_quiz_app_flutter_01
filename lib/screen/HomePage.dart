@@ -45,8 +45,8 @@ class HomePage extends StatelessWidget {
           onTap: () => Navigator.pushNamed(context, AboutThisPage.routeName)
         ),
         ListTile(
-            title: Text('About FFIX'),
-            onTap: () => Navigator.pushNamed(context, AboutFFIXPage.routeName)
+          title: Text('About FFIX'),
+          onTap: () => Navigator.pushNamed(context, AboutFFIXPage.routeName)
         ),
         ListTile(
           title: Text('QuizList'),

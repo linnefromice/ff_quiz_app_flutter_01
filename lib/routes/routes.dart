@@ -3,7 +3,7 @@ import 'package:ff_quiz_app_flutter/screen/AboutThisPage.dart';
 import 'package:ff_quiz_app_flutter/screen/HomePage.dart';
 import 'package:ff_quiz_app_flutter/screen/QuizListPage.dart';
 import 'package:ff_quiz_app_flutter/screen/QuizPage.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Routes {
   static final home = HomePage();

@@ -42,10 +42,10 @@ class _QuizState extends State<QuizPage> {
 
   Future _openClearDialog(BuildContext context) async {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return _buildClearDialog();
-        }
+      context: context,
+      builder: (BuildContext context) {
+        return _buildClearDialog();
+      }
     );
   }
 
@@ -69,10 +69,10 @@ class _QuizState extends State<QuizPage> {
 
   Future _openCorrectDialog(final String answer, BuildContext context) async {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return _buildCorrectDialog(answer);
-        }
+      context: context,
+      builder: (BuildContext context) {
+        return _buildCorrectDialog(answer);
+      }
     );
   }
 
@@ -96,10 +96,10 @@ class _QuizState extends State<QuizPage> {
 
   Future _openIncorrectDialog(final String answer, BuildContext context) async {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return _buildIncorrectDialog(answer);
-        }
+      context: context,
+      builder: (BuildContext context) {
+        return _buildIncorrectDialog(answer);
+      }
     );
   }
 
@@ -110,7 +110,7 @@ class _QuizState extends State<QuizPage> {
         context,
         QuizPage.routeName,
         arguments: QuizPageArguments(
-            _numOfAnswers + 1,
+          _numOfAnswers + 1,
           _answeredQuizIds,
           _correctAnswerForClear,
           _language,
