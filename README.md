@@ -1,6 +1,15 @@
 # ff_quiz_app_flutter
 
-ff_quiz_app_flutter
+This is quiz application about Final Fantasy IX.
+
+- Functions for Quiz
+  - Select difficulty level - easy, normal, difficult
+  - Select language - Japanese, English
+  - See all quiz
+- Functions for Etc
+  - See Story Overview
+
+# Default description when Flutter Application init
 
 ## Getting Started
 
