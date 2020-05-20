@@ -146,7 +146,7 @@ class HomePage extends StatelessWidget {
     ),
     label: Text(
       _msg,
-      style: TextStyle(fontSize: 20),
+      style: TextStyle(fontSize: 16),
     ),
     color: _buttonColor,
     onPressed: () => Navigator.pushNamed(
@@ -156,25 +156,28 @@ class HomePage extends StatelessWidget {
     ),
   );
 
-  Widget _buildStartButtons(BuildContext context, String language) => Row(
+  Widget _buildStartButtons(BuildContext context, String language, Size size) => Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
       Container(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(2.0),
+        width: size.width * 0.33,
         child: _buildStartButtonForEasy(context, language)
       ),
       Container(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(2.0),
+        width: size.width * 0.33,
         child: _buildStartButtonForNormal(context, language)
       ),
       Container(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(2.0),
+        width: size.width * 0.33,
         child: _buildStartButtonForHard(context, language)
       ),
     ],
   );
 
-  Widget _buildBody(BuildContext context) => Container(
+  Widget _buildBody(BuildContext context, size) => Container(
     decoration: BoxDecoration(
       image: DecorationImage(
         image: _buildBackgroundImage(context),
@@ -195,7 +198,10 @@ class HomePage extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          _buildStartButtons(context, Language.EN),
+          SizedBox(
+            width: size.width,
+            child: _buildStartButtons(context, Language.EN, size),
+          ),
           Text(
             'Japanese Version',
             style: TextStyle(
@@ -204,7 +210,10 @@ class HomePage extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          _buildStartButtons(context, Language.JP),
+          SizedBox(
+            width: size.width,
+            child: _buildStartButtons(context, Language.JP, size),
+          ),
         ],
       ),
     ),
@@ -212,10 +221,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: _buildAppBar(),
       drawer: _buildDrawer(context),
-      body: _buildBody(context),
+      body: _buildBody(context, size),
     );
   }
 }
